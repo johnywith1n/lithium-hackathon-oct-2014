@@ -5,12 +5,12 @@ console.log('\'Allo \'Allo! Content script');
 var fakeSubmitButtonId = "__fakeSubmitButton";
 
 function getSubmitButton () {
-  return $('input[type="submit"][value="Post Your Comment"]');
+  return $('input[type="submit"][value="Post"]');
 }
 
 function createFakeSubmitButton () {
   var fakeSubmitButton, submitButton;
-  fakeSubmitButton = $('<input id="' + fakeSubmitButtonId + '" class="lia-button lia-button-primary lia-button-Submit-action" value="Post Your Comment" type="button">');
+  fakeSubmitButton = $('<input id="' + fakeSubmitButtonId + '" class="lia-button lia-button-primary lia-button-Submit-action" value="Post" type="button">');
   submitButton = getSubmitButton();
 
   submitButton.hide();
