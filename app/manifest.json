@@ -1,6 +1,6 @@
 {
     "name": "__MSG_appName__",
-    "version": "0.0.3",
+    "version": "0.0.10",
     "manifest_version": 2,
     "description": "__MSG_appDescription__",
     "icons": {
@@ -14,6 +14,9 @@
             "scripts/background.js"
         ]
     },
+    "web_accessible_resources": [
+        "bower_components/bootstrap/dist/fonts/*"
+    ],
     "content_scripts": [
         {
             "matches": [
@@ -21,10 +24,15 @@
                 "https://*/*"
             ],
             "css": [
-                "styles/main.css"
+                "styles/main.css",
+                "bower_components/bootstrap/dist/css/bootstrap.css.map",
+                "bower_components/bootstrap/dist/css/bootstrap-theme.min.css",
+                "bower_components/bootstrap/dist/css/bootstrap.min.css"
             ],
             "js": [
-                "scripts/contentscript.js"
+                "scripts/contentscript.js",
+                "bower_components/jquery/dist/jquery.min.js",
+                "bower_components/bootstrap/dist/js/bootstrap.min.js"
             ],
             "run_at": "document_end",
             "all_frames": false
