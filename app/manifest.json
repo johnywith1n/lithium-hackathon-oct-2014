@@ -31,9 +31,9 @@
                 "bower_components/bootstrap/dist/css/bootstrap.min.css"
             ],
             "js": [
-                "scripts/contentscript.js",
                 "bower_components/jquery/dist/jquery.min.js",
-                "bower_components/bootstrap/dist/js/bootstrap.min.js"
+                "bower_components/bootstrap/dist/js/bootstrap.min.js",
+                "scripts/contentscript.js"
             ],
             "run_at": "document_end",
             "all_frames": false
