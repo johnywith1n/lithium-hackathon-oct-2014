@@ -77,7 +77,7 @@ function createFakeSubmitButton () {
   submitButton.parent().append(getModalHTML());
 
   getModalDoneButton().click(function () {
-    getModalDoneButton.off('click');
+    getModalDoneButton().off('click');
     appendExpertsToBody(getSelectedExperts());
     getFakeSubmitButton().hide();
     getSubmitButton().show();
