@@ -113,30 +113,35 @@ function createFakeSubmitButton () {
 }
 
 function addExpertsToModal (usernames) {
-  var table = $('<table id="' + expertsModalTableId + '" class="lia-list-wide" style="width:300px"></table>');
+  var table = $('<table id="' + expertsModalTableId + '" class="lia-list-wide"></table>');
   getModalBody().append(table);
 
-  table.append('<thead><tr><th class="lia-data-cell-primary lia-data-cell-text t-first">Users</th></tr></thead>');
+  table.append('<thead><tr><th class="lia-data-cell-primary lia-data-cell-text t-first">Users</th > <th class="lia-data-cell-primary lia-data-cell-text">Expert On</th></tr></thead>');
 
   var tbody = $('<tbody></tbody>');
   table.append(tbody);
 
   usernames.forEach(function (username) {
     var id = '__tableRow_' + username;
-    var row = '<div id="' + id + '" class="UserProfileSummary lia-user-item lia-user-info-group">'+
-                '<div class="UserAvatar lia-user-avatar lia-component-common-widget-user-avatar">'+
-                    '<a><img class="lia-user-avatar-message" src="http://skypec.i.lithium.com/t5/image/serverpage/avatar-name/wink/avatar-theme/candy/avatar-collection/Skype/avatar-display-size/message"></a>'+
-                '</div>'+
-                '<div class="lia-user-attributes">'+
-                  '<div class="lia-user-name">'+
-                    '<span class="UserName lia-user-name" style="margin-left:5px">'+
-                      '<a>' + username + '</a>' +
-                    '</span>'+
-                  '</div>'+
-                '</div>'+
-              '</div>';
+    var row = '<tr id="' + id + '" class="lia-list-row" >' +
+                '<td>' +
+                  '<div class="UserProfileSummary lia-user-item lia-user-info-group">'+
+                    '<div class="UserAvatar lia-user-avatar lia-component-common-widget-user-avatar">'+
+                        '<a><img class="lia-user-avatar-message" src="' + getAvatar() + '"></a>'+
+                    '</div>'+
+                    '<div class="lia-user-attributes">'+
+                      '<div class="lia-user-name">'+
+                        '<span class="UserName lia-user-name" style="margin-left:5px">'+
+                          '<a>' + username + '</a>' +
+                        '</span>'+
+                      '</div>'+
+                    '</div>'+
+                  '</div>' +
+                '</td>' +
+                '<td class="lia-data-cell-primary lia-data-cell-text">Skype</td>' +
+              '</tr>';
 
-    tbody.append('<tr><td>'+ row + '</td></tr>');
+    tbody.append(row);
 
     $('#' + id).click(function (e) {
       if (selectedUsers[username]) {
@@ -144,10 +149,19 @@ function addExpertsToModal (usernames) {
         $(e.currentTarget).css('background-color', 'white');
       } else {
         selectedUsers[username] = true;
-        $(e.currentTarget).css('background-color', 'yellow');
+        $(e.currentTarget).css('background-color', '#ededed');
       }
     });
   });
+}
+
+function getAvatar() {
+  var avatars = ['http://skypec.stage.lithium.com/t5/image/serverpage/avatar-name/dog/avatar-theme/candy/avatar-collection/animals/avatar-display-size/message',
+                 'http://skypec.stage.lithium.com/t5/image/serverpage/avatar-name/bear/avatar-theme/candy/avatar-collection/animals/avatar-display-size/message',
+                 'http://skypec.stage.lithium.com/t5/image/serverpage/avatar-name/bird/avatar-theme/candy/avatar-collection/animals/avatar-display-size/message',
+                 'http://skypec.stage.lithium.com/t5/image/serverpage/avatar-name/elephant/avatar-theme/candy/avatar-collection/animals/avatar-display-size/message',
+                 'http://skypec.stage.lithium.com/t5/image/serverpage/avatar-name/pig/avatar-theme/candy/avatar-collection/animals/avatar-display-size/message']
+  return avatars[Math.floor(Math.random() * 5)];
 }
 
 function main () {
