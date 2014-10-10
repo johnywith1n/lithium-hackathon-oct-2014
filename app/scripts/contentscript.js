@@ -34,7 +34,7 @@ function getMessageBodyElement () {
 }
 
 function getMessageBodyTextContent () {
-  return getMessageBodyElement().get(0).textContent;
+  return getMessageBodyElement().get(0).textContent.replace('\n', ' ');
 }
 
 function getModalHTML () {
