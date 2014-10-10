@@ -123,6 +123,7 @@ function addExpertsToModal (usernames) {
 
   usernames.forEach(function (username) {
     var id = '__tableRow_' + username;
+    id = id.replace('.', '');
     var row = '<tr id="' + id + '" class="lia-list-row" >' +
                 '<td>' +
                   '<div class="UserProfileSummary lia-user-item lia-user-info-group">'+
