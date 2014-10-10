@@ -68,12 +68,12 @@ function getSelectedExperts () {
 }
 
 function getTopicExperts () {
-  $.post('http://10.253.190.66:8080/api/users', getMessageBodyTextContent()).done(function (res) {
-    addExpertsToModal(['user1', 'user2', 'user3']);
-    spinner.stop();
-  }).fail(function (e) {
-    console.error(e);
-  });
+    $.post('http://10.253.190.66:8080/api/users', { message: getMessageBodyTextContent() }).done(function (res) {
+      addExpertsToModal(['johnywith1n', 'charlie.deuter', 'selvaU']);
+      spinner.stop();
+    }).fail(function (e) {
+      console.error(e);
+    });
 }
 
 function appendExpertsToBody (experts) {
@@ -123,7 +123,8 @@ function addExpertsToModal (usernames) {
 
   usernames.forEach(function (username) {
     var id = '__tableRow_' + username;
-    var row = '<tr id="' + id + '" class="lia-list-row lia-user-select-row" >' +
+  id = id.replace('.', '');
+  var row = '<tr id="' + id + '" class="lia-list-row lia-user-select-row" >' +
                 '<td>' +
                   '<div class="UserProfileSummary lia-user-item lia-user-info-group">'+
                     '<div class="UserAvatar lia-user-avatar lia-component-common-widget-user-avatar">'+
