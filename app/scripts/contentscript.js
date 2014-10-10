@@ -116,7 +116,7 @@ function addExpertsToModal (usernames) {
   var table = $('<table id="' + expertsModalTableId + '" class="lia-list-wide"></table>');
   getModalBody().append(table);
 
-  table.append('<thead><tr><th class="lia-data-cell-primary lia-data-cell-text t-first">Users</th > <th class="lia-data-cell-primary lia-data-cell-text">Expert On</th></tr></thead>');
+  table.append('<thead class="lia-user-select-head"><tr><th class="lia-data-cell-primary lia-data-cell-text t-first">Users</th > <th class="lia-data-cell-primary lia-data-cell-text">Expert On</th></tr></thead>');
 
   var tbody = $('<tbody></tbody>');
   table.append(tbody);
